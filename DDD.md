@@ -39,3 +39,30 @@
 * 독립된 객체
   * 하나의 애그리거트는 이미 관련 객체들의 군집이기 때문에 다른 애그리거트에 영향을 주면 안됨
   * 각자의 애그리거트 역할만 수행하도록 해야함
+
+## Chapter4
+### Repository DIP
+* Repository Interface는 Domain Layer에 생성
+* Repository 구현체인 Impl Class는 Infrastructure Layer에 구현
+### EntityManager
+* JPA의 공통 Method를 사용할 수 있는 객체(e.g. find)
+### 애그리거트 Entity
+* 루트 엔티티와 밸류 엔티티로 나뉘어짐
+* 한개의 테이블이 루트 엔티티와 밸류 엔티티로 나뉘어 진 경우 Embeddable, Embedded Annotation으로 정의함
+### AttributeConverter
+* 두 개의 값을 하나의 컬럼으로 매핑하거나 밸류 타입의 객체의 값을 매핑해야할 때 사용할 Converter를 만들어서 지정할 수 있음
+### 4.3.5 밸류 컬렉션: 별도 테이블 매핑 (p147) - **이해 안 됨**
+### EmbeddedId Anotation
+* 밸류 타입의 식별자를 사용하기 위한 Annotation
+* Multi Key가 지정된 테이블에서 사용해봄
+### SecondaryTable(p154) - **이해 안 됨**
+
+## Chapter5
+### 스펙(Specification)
+* 애그리거트가 특정 조건을 충족하는지를 검사할 때 사용하는 인터페이스
+* 다중 조건을 처리할 때 적합
+### Sort
+* Method 명에 OrderBy를 사용하면 이름이 길어짐
+* Sort 객체를 사용하면 정렬 순서를 변경하기 편해짐
+### Pageable
+* 페이징을 자동으로 처리해줌
